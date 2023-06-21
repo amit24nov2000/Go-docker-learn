@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-docker-learn
+spec:
+  replicas: 3  # Number of replicas to run
+  selector:
+    matchLabels:
+      app: go-docker-learn
+  template:
+    metadata: 
+      labels:
+        app: go-docker-learn
+    spec:
+      containers:
+        - name: go-docker-learn
+          image: deepak:v1 # Replace with your Go application's Docker image
+          ports:
+            - containerPort: 8080  # Port on which your Go application listens
